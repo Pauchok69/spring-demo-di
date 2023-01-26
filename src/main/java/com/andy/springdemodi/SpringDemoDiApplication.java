@@ -1,9 +1,6 @@
 package com.andy.springdemodi;
 
-import com.andy.springdemodi.controllers.ConstructorInjectedController;
-import com.andy.springdemodi.controllers.MyController;
-import com.andy.springdemodi.controllers.PropertyInjectedController;
-import com.andy.springdemodi.controllers.SetterInjectedController;
+import com.andy.springdemodi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -13,6 +10,9 @@ public class SpringDemoDiApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringDemoDiApplication.class, args);
+
+        I18nController i18nController = context.getBean("i18nController", I18nController.class);
+        System.out.println("i18nController.sayHello() = " + i18nController.sayHello());
 
         System.out.println("---------- Primary Bean");
         MyController myController = context.getBean("myController", MyController.class);
