@@ -1,6 +1,11 @@
-package guru.springframework.sfgdi.datasource;
+package guru.springframework.sfgdi.config;
 
-public class FakeDataSource {
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ConfigurationProperties("guru")
+public class SfgConfiguration {
     private String username;
     private String password;
     private String jdbcUrl;
@@ -28,4 +33,5 @@ public class FakeDataSource {
     public void setJdbcUrl(String jdbcUrl) {
         this.jdbcUrl = jdbcUrl;
     }
+
 }
